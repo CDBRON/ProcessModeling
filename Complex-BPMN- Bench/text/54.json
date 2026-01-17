@@ -1,0 +1,17 @@
+{
+  "id": "3519a4f2-f534-41df-b552-6f64635d5bd4",
+  "domain": "HR",
+  "complexity_level": 3,
+  "coarse_request": "Please design a 'Parental Leave, Hiring, and Development process' that includes the roles of 'Parent', 'HR', 'Candidate', and 'Manager'. The key activities are 'maternity leave planning', 'recruitment and onboarding', and 'personal development planning', and there should be decision points regarding 'leave extension', 'interview preference', and 'promotion approval'.",
+  "fine_grained_text": "Step 1: Title: Becoming A Parent\n\nCreate a process that support in planning, taking and extending a maternity leave.  \n* Fetch information about potential models (months duration, split between parents) \n* Let parent select \n* Collect relevant information \n* Notify Social Security, Company in time \n* Gather information from companies \n* At the end of the period let parent decide about extension.\n[Transition]: The decision to extend the parental leave period or return to work in Process A triggers a review of team capacity, which may initiate the need for a new hire and launch Process B.\nStep 2: This process kicks off when a department identifies the need for a new hire.\nHR creates a job description and posts it on job boards.\nResumes are collected and screened, followed by initial phone interviews.\nSelected candidates are invited for in-person or virtual interviews depending on each candidate's preference.\nOnce a candidate is chosen, an offer is extended, and salary negotiations may take place.\nAfter the offer is accepted, the onboarding process begins, including paperwork, orientation, and training.\nThe process concludes once all onboarding steps are completed and the new hire is fully integrated into the team.\n[Transition]: Once a new hire is fully integrated into their team, their ongoing performance and career aspirations naturally lead into the development planning cycle.\nStep 3: This process begins with identifying an employee's development needs or career aspirations.\nThe manager and HR create a personal development plan, which may include training programs, mentorship, or additional responsibilities.\nThe employee keeps working on skill enhancement while receiving feedback and evaluation from supervisors.\nOnce certain milestones are reached, the employee is considered for a promotion or new role.\nHR conducts a formal review of performance, and if approved, the promotion is finalized with new responsibilities and compensation adjustments.\nThe process ends when the employee is promoted and transitions into the new role.",
+  "atomic_components": [
+    "atom_ff15f7f9",
+    "atom_8f9c2858",
+    "atom_18d84093"
+  ],
+  "bridge_logics": [
+    "The decision to extend the parental leave period or return to work in Process A triggers a review of team capacity, which may initiate the need for a new hire and launch Process B.",
+    "Once a new hire is fully integrated into their team, their ongoing performance and career aspirations naturally lead into the development planning cycle."
+  ],
+  "created_at": "2026-01-05 14:22:43"
+}

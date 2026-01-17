@@ -1,0 +1,17 @@
+{
+  "id": "6b361343-f042-4021-b3fa-285fe46e7f55",
+  "domain": "Manufacturing",
+  "complexity_level": 3,
+  "coarse_request": "Please design an integrated aircraft manufacturing and monitoring process that includes the roles of 'customer', 'manufacturing teams', 'engineer', 'warehouse employees', and 'sales'. The key activities are 'assemble interior', 'calculate OEE', and 'perform quality checks', and there should be decision points regarding 'customization options', 'OEE threshold', and 'parts availability'.",
+  "fine_grained_text": "Step 1: Title: Luxury Airplane\n\nYou produce airplanes.\nWhile the base model is always the same, your customer likes to pimp their airplane with fancy interior.\nYou let them decide between a number of 5 different bars, the number of seats, their color, and the amount of water in the toilets of their plane (you can come up with additional stuff).\nAfter you received the specifications you send the requirements to different teams to manufacture the parts.\nE.g. manufacturing the vodka bar is done by the Russian team, the whiskey bar is manufactured by an Irish team.\nAfter receiving the individual bits and pieces, the interior of the plane is assembled, and the plane is sent on a test flight.\nDuring the flight you create a test protocol which is sent to you and the customer.\nThe plane is delivered to the customer, which has to confirm.\n[Transition]: After the luxury airplane is delivered and the customer confirms acceptance, the aircraft enters operational service, at which point the OEE monitoring process begins to collect performance data and calculate equipment efficiency to ensure optimal operation.\nStep 2: Title: OEE\n\nWrite a process, that collects relevant information from a machine, and calculated the Overall Equipment Efficiency (OEE).\nIf the OEE falls below a certain value/percentage, stop the machine and send an email to an engineer.\nWhen the machine is restarted, continue measuring.\nWhen the machine is disconnected, stop the process.\n[Transition]: **Transition sentence:**\n\nOnce the machine efficiency monitoring system (Process A) confirms optimal OEE levels and production capability, the order-to-cash process (Process B) can proceed with manufacturing the requested items.\nStep 3: An order to cash process starts when a customer order is received.\nAfter the order has been processed, it is sent to the warehouse.\nThe warehouse employees determine the parts required to produce the requested items.\nIf any parts are not available in the warehouse, these are ordered.\nOnce all necessary parts are available, production will start.\nAfter production, quality checks will be performed.\nIf the production process has finished, products will be packaged and labeled, before returning to the warehouse.\nFinally, sales will be informed about the completed production and the product can be sold to the customer.",
+  "atomic_components": [
+    "atom_2c266446",
+    "atom_72607226",
+    "atom_b0b78e86"
+  ],
+  "bridge_logics": [
+    "After the luxury airplane is delivered and the customer confirms acceptance, the aircraft enters operational service, at which point the OEE monitoring process begins to collect performance data and calculate equipment efficiency to ensure optimal operation.",
+    "**Transition sentence:**\n\nOnce the machine efficiency monitoring system (Process A) confirms optimal OEE levels and production capability, the order-to-cash process (Process B) can proceed with manufacturing the requested items."
+  ],
+  "created_at": "2026-01-04 21:21:25"
+}

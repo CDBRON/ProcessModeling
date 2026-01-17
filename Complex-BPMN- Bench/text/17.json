@@ -1,0 +1,17 @@
+{
+  "id": "6c894bda-eb65-47e6-9393-62e045abc895",
+  "domain": "Manufacturing",
+  "complexity_level": 3,
+  "coarse_request": "Please design a comprehensive manufacturing, fulfillment, and monitoring process that includes the roles of 'builder', 'children', 'customer', 'warehouse employees', 'sales', and 'engineer'. The key activities are 'build subcomponents', 'production', and 'calculate OEE', and there should be decision points regarding 'test success', 'parts availability', and 'OEE value'.",
+  "fine_grained_text": "Step 1: Title: Building a custom machine out of Lego bricks\n\nWhen building a custom machine out of Lego bricks, you first need to develop the basic design.\nAfter that, you order certain Lego brick sets.\nYou give the lego sets to a group of children which should sort the parts for you (into a number of containers).\nYour machine is built out of a number of subcomponents.\nYou build them individually, using parts from the sorted containers.\nIf there are no more parts in a container, you reorder individual parts.\nAfter building each subcomponent, you have to test them individually and (if each test is successful) assemble them.\nIf subcomponents are not tested successfully, you have to redesign and rebuild them.\n[Transition]: Upon the successful assembly of the Lego machine in Process A, the resulting product is packaged and labeled, effectively initiating the order fulfillment stage of Process B.\nStep 2: An order to cash process starts when a customer order is received.\nAfter the order has been processed, it is sent to the warehouse.\nThe warehouse employees determine the parts required to produce the requested items.\nIf any parts are not available in the warehouse, these are ordered.\nOnce all necessary parts are available, production will start.\nAfter production, quality checks will be performed.\nIf the production process has finished, products will be packaged and labeled, before returning to the warehouse.\nFinally, sales will be informed about the completed production and the product can be sold to the customer.\n[Transition]: Since the products from Process A are produced using specific machinery, the operational performance of that machinery is monitored by Process B to ensure production reliability and efficiency.\nStep 3: Title: OEE\n\nWrite a process, that collects relevant information from a machine, and calculated the Overall Equipment Efficiency (OEE).\nIf the OEE falls below a certain value/percentage, stop the machine and send an email to an engineer.\nWhen the machine is restarted, continue measuring.\nWhen the machine is disconnected, stop the process.",
+  "atomic_components": [
+    "atom_18653e48",
+    "atom_b0b78e86",
+    "atom_72607226"
+  ],
+  "bridge_logics": [
+    "Upon the successful assembly of the Lego machine in Process A, the resulting product is packaged and labeled, effectively initiating the order fulfillment stage of Process B.",
+    "Since the products from Process A are produced using specific machinery, the operational performance of that machinery is monitored by Process B to ensure production reliability and efficiency."
+  ],
+  "created_at": "2026-01-05 15:33:21"
+}

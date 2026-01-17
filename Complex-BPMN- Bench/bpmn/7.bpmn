@@ -1,0 +1,1033 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:omgdc="http://www.omg.org/spec/DD/20100524/DC" xmlns:omgdi="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.signavio.com" targetNamespace="http://www.signavio.com" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="18.9.0" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL http://www.omg.org/spec/BPMN/2.0/20100501/BPMN20.xsd">
+  <bpmn:process id="Process_Merged" isExecutable="false">
+    <bpmn:extensionElements />
+    <bpmn:laneSet id="atom_0_sid-e2635af8-08b3-4091-a3d9-5bf8b3fa7152" />
+    <bpmn:startEvent id="atom_0_sid-FE96D28B-72D2-4E29-9ECA-AC6243966E00" name="customer order is received">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="vorgngerprozesse" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>atom_0_sid-98E88C16-CEF8-4670-A2D2-77FD469AD72A</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:task id="atom_0_sid-DAC9E37C-C386-4072-A774-4D75FA666250" name="order sent to the warehouse">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-98E88C16-CEF8-4670-A2D2-77FD469AD72A</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-34653BDE-B1E9-4B67-B977-9EBC710E9460</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_0_sid-633CB30F-4202-49E4-8AA1-163C29826956" name="warehouse employees determine the parts required to produce the requested items">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-34653BDE-B1E9-4B67-B977-9EBC710E9460</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-02E9A299-A301-49AA-91E5-DFDAA43A08FE</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="atom_0_sid-AE82CBCE-22BA-4718-9DC7-5F3C92965010" name="" gatewayDirection="Diverging">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-02E9A299-A301-49AA-91E5-DFDAA43A08FE</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-EFCDF1EF-52AD-433C-9922-6B81875B1E3C</bpmn:outgoing>
+      <bpmn:outgoing>atom_0_sid-6553D798-ABB1-43E5-92FA-44163C110CD8</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="atom_0_sid-FA639CE6-E66E-465F-8CBF-EEE2F697D221" name="order needed parts">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-EFCDF1EF-52AD-433C-9922-6B81875B1E3C</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-B178EE2A-A0BA-4E05-86F9-C81267E42A8B</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="atom_0_sid-115934F8-6F49-4C96-BD7D-342B2B651695" name="" gatewayDirection="Converging">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffff" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-B178EE2A-A0BA-4E05-86F9-C81267E42A8B</bpmn:incoming>
+      <bpmn:incoming>atom_0_sid-6553D798-ABB1-43E5-92FA-44163C110CD8</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-D3C55120-D9A8-4695-B481-95DD1F852D5F</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:task id="atom_0_sid-0D2CEC09-0B4F-4715-A47B-11CA36A8EF34" name="production  start">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-D3C55120-D9A8-4695-B481-95DD1F852D5F</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-0E6EF0C4-FC07-45CD-A8E6-F64E98256B08</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_0_sid-07AEDEF0-7F4C-4434-8315-2FCFB43DFEF2" name="quality checks">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-0E6EF0C4-FC07-45CD-A8E6-F64E98256B08</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-25452CDA-3A62-4CD6-845E-5EB01077CF07</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_0_sid-F875C6AF-25DD-4B75-BE1B-B7D0E760E8C2" name="packag and label product">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-25452CDA-3A62-4CD6-845E-5EB01077CF07</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-00CDBBD4-296C-4526-BC45-30915685732D</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_0_sid-18FA731E-131C-424D-AD0C-35237A1DD368" name="return product to the warehouse">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-00CDBBD4-296C-4526-BC45-30915685732D</bpmn:incoming>
+      <bpmn:outgoing>atom_0_sid-ACF7A1BE-2521-4DEA-966D-EB95FAC3E85F</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_0_sid-8B760422-D6BF-4BDB-AAE6-3236668A3FC6" name="inform sales completed production">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bgcolor" metaValue="#ffffcc" />
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioMetaData metaKey="erteiltfreigabe" metaValue="" />
+        <ns2:signavioMetaData metaKey="meta-risks" metaValue="" />
+        <ns2:signavioMetaData metaKey="wirdkonsultiert" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="externaldocuments" metaValue="[]" />
+        <ns2:signavioMetaData metaKey="wirdinformiert" metaValue="[]" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>atom_0_sid-ACF7A1BE-2521-4DEA-966D-EB95FAC3E85F</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="atom_0_sid-98E88C16-CEF8-4670-A2D2-77FD469AD72A" name="" sourceRef="atom_0_sid-FE96D28B-72D2-4E29-9ECA-AC6243966E00" targetRef="atom_0_sid-DAC9E37C-C386-4072-A774-4D75FA666250">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-34653BDE-B1E9-4B67-B977-9EBC710E9460" name="" sourceRef="atom_0_sid-DAC9E37C-C386-4072-A774-4D75FA666250" targetRef="atom_0_sid-633CB30F-4202-49E4-8AA1-163C29826956">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-02E9A299-A301-49AA-91E5-DFDAA43A08FE" name="" sourceRef="atom_0_sid-633CB30F-4202-49E4-8AA1-163C29826956" targetRef="atom_0_sid-AE82CBCE-22BA-4718-9DC7-5F3C92965010">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-B178EE2A-A0BA-4E05-86F9-C81267E42A8B" name="" sourceRef="atom_0_sid-FA639CE6-E66E-465F-8CBF-EEE2F697D221" targetRef="atom_0_sid-115934F8-6F49-4C96-BD7D-342B2B651695">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-EFCDF1EF-52AD-433C-9922-6B81875B1E3C" name="any parts not available" sourceRef="atom_0_sid-AE82CBCE-22BA-4718-9DC7-5F3C92965010" targetRef="atom_0_sid-FA639CE6-E66E-465F-8CBF-EEE2F697D221">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioLabel align="left" distance="6.0" from="1" orientation="lr" ref="text_name" to="2" valign="bottom" x="551.0662209686305" y="640.2928010420602" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-6553D798-ABB1-43E5-92FA-44163C110CD8" name="all necessary parts are available" sourceRef="atom_0_sid-AE82CBCE-22BA-4718-9DC7-5F3C92965010" targetRef="atom_0_sid-115934F8-6F49-4C96-BD7D-342B2B651695">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+        <ns2:signavioLabel align="left" distance="-6.5" from="0" orientation="ul" ref="text_name" to="1" valign="top" x="802.6673766514707" y="695.7928010420602" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-D3C55120-D9A8-4695-B481-95DD1F852D5F" name="" sourceRef="atom_0_sid-115934F8-6F49-4C96-BD7D-342B2B651695" targetRef="atom_0_sid-0D2CEC09-0B4F-4715-A47B-11CA36A8EF34">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-0E6EF0C4-FC07-45CD-A8E6-F64E98256B08" name="" sourceRef="atom_0_sid-0D2CEC09-0B4F-4715-A47B-11CA36A8EF34" targetRef="atom_0_sid-07AEDEF0-7F4C-4434-8315-2FCFB43DFEF2">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-25452CDA-3A62-4CD6-845E-5EB01077CF07" name="" sourceRef="atom_0_sid-07AEDEF0-7F4C-4434-8315-2FCFB43DFEF2" targetRef="atom_0_sid-F875C6AF-25DD-4B75-BE1B-B7D0E760E8C2">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-00CDBBD4-296C-4526-BC45-30915685732D" name="" sourceRef="atom_0_sid-F875C6AF-25DD-4B75-BE1B-B7D0E760E8C2" targetRef="atom_0_sid-18FA731E-131C-424D-AD0C-35237A1DD368">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="atom_0_sid-ACF7A1BE-2521-4DEA-966D-EB95FAC3E85F" name="" sourceRef="atom_0_sid-18FA731E-131C-424D-AD0C-35237A1DD368" targetRef="atom_0_sid-8B760422-D6BF-4BDB-AAE6-3236668A3FC6">
+      <bpmn:extensionElements>
+        <ns2:signavioMetaData metaKey="bordercolor" metaValue="#000000" />
+      </bpmn:extensionElements>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="atom_1_UserTask_1" name="Send sketches to an artist">
+      <bpmn:incoming>atom_1_SequenceFlow_4</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_1</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_2" name="Tell artist to change">
+      <bpmn:incoming>atom_1_SequenceFlow_29</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_3</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_3" name="Choose the color">
+      <bpmn:incoming>atom_1_SequenceFlow_6</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_7</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_4" name="Check color level">
+      <bpmn:incoming>atom_1_SequenceFlow_8</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_9</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_5" name="Order color">
+      <bpmn:incoming>atom_1_SequenceFlow_13</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_15</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_6" name="Turn on the printer">
+      <bpmn:incoming>atom_1_SequenceFlow_16</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_17</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_7" name="Generate gcode file">
+      <bpmn:incoming>atom_1_SequenceFlow_18</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_23</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="atom_1_UserTask_8" name="Print the model">
+      <bpmn:incoming>atom_1_SequenceFlow_24</bpmn:incoming>
+    </bpmn:userTask>
+    <bpmn:receiveTask id="atom_1_ReceiveTask_1" name="Receive result">
+      <bpmn:incoming>atom_1_SequenceFlow_1</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_2</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:receiveTask id="atom_1_ReceiveTask_2" name="Receive status">
+      <bpmn:incoming>atom_1_SequenceFlow_21</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_19</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:receiveTask id="atom_1_ReceiveTask_3" name="Receive order confirmation">
+      <bpmn:incoming>atom_1_SequenceFlow_15</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_27</bpmn:outgoing>
+    </bpmn:receiveTask>
+    <bpmn:manualTask id="atom_1_ManualTask_1" name="Put it on shopping list">
+      <bpmn:incoming>atom_1_SequenceFlow_10</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_12</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:manualTask id="atom_1_ManualTask_2" name="Color received">
+      <bpmn:incoming>atom_1_SequenceFlow_27</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_28</bpmn:outgoing>
+    </bpmn:manualTask>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_1" name="Satisfied with result?">
+      <bpmn:incoming>atom_1_SequenceFlow_2</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_6</bpmn:outgoing>
+      <bpmn:outgoing>atom_1_SequenceFlow_29</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_2">
+      <bpmn:incoming>atom_1_SequenceFlow_3</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_3" name="In stock?">
+      <bpmn:incoming>atom_1_SequenceFlow_7</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_8</bpmn:outgoing>
+      <bpmn:outgoing>atom_1_SequenceFlow_13</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_4" name="Under 100g?">
+      <bpmn:incoming>atom_1_SequenceFlow_9</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_10</bpmn:outgoing>
+      <bpmn:outgoing>atom_1_SequenceFlow_11</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_5">
+      <bpmn:incoming>atom_1_SequenceFlow_11</bpmn:incoming>
+      <bpmn:incoming>atom_1_SequenceFlow_12</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_14</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_6">
+      <bpmn:incoming>atom_1_SequenceFlow_14</bpmn:incoming>
+      <bpmn:incoming>atom_1_SequenceFlow_28</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_16</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_7" name="Heated?">
+      <bpmn:incoming>atom_1_SequenceFlow_19</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_22</bpmn:outgoing>
+      <bpmn:outgoing>atom_1_SequenceFlow_26</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_1_ExclusiveGateway_8">
+      <bpmn:incoming>atom_1_SequenceFlow_20</bpmn:incoming>
+      <bpmn:incoming>atom_1_SequenceFlow_26</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_21</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="atom_1_ParallelGateway_1">
+      <bpmn:incoming>atom_1_SequenceFlow_17</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_18</bpmn:outgoing>
+      <bpmn:outgoing>atom_1_SequenceFlow_20</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="atom_1_ParallelGateway_2">
+      <bpmn:incoming>atom_1_SequenceFlow_22</bpmn:incoming>
+      <bpmn:incoming>atom_1_SequenceFlow_23</bpmn:incoming>
+      <bpmn:outgoing>atom_1_SequenceFlow_24</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_1" sourceRef="atom_1_UserTask_1" targetRef="atom_1_ReceiveTask_1" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_2" sourceRef="atom_1_ReceiveTask_1" targetRef="atom_1_ExclusiveGateway_1" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_3" sourceRef="atom_1_UserTask_2" targetRef="atom_1_ExclusiveGateway_2" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_4" sourceRef="atom_1_ExclusiveGateway_2" targetRef="atom_1_UserTask_1" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_6" name="Yes" sourceRef="atom_1_ExclusiveGateway_1" targetRef="atom_1_UserTask_3" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_7" sourceRef="atom_1_UserTask_3" targetRef="atom_1_ExclusiveGateway_3" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_8" name="Yes" sourceRef="atom_1_ExclusiveGateway_3" targetRef="atom_1_UserTask_4" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_9" sourceRef="atom_1_UserTask_4" targetRef="atom_1_ExclusiveGateway_4" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_10" name="Yes" sourceRef="atom_1_ExclusiveGateway_4" targetRef="atom_1_ManualTask_1" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_11" name="No" sourceRef="atom_1_ExclusiveGateway_4" targetRef="atom_1_ExclusiveGateway_5" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_12" sourceRef="atom_1_ManualTask_1" targetRef="atom_1_ExclusiveGateway_5" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_13" name="No" sourceRef="atom_1_ExclusiveGateway_3" targetRef="atom_1_UserTask_5" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_14" sourceRef="atom_1_ExclusiveGateway_5" targetRef="atom_1_ExclusiveGateway_6" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_15" sourceRef="atom_1_UserTask_5" targetRef="atom_1_ReceiveTask_3" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_16" sourceRef="atom_1_ExclusiveGateway_6" targetRef="atom_1_UserTask_6" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_17" sourceRef="atom_1_UserTask_6" targetRef="atom_1_ParallelGateway_1" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_18" sourceRef="atom_1_ParallelGateway_1" targetRef="atom_1_UserTask_7" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_19" sourceRef="atom_1_ReceiveTask_2" targetRef="atom_1_ExclusiveGateway_7" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_20" sourceRef="atom_1_ParallelGateway_1" targetRef="atom_1_ExclusiveGateway_8" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_21" sourceRef="atom_1_ExclusiveGateway_8" targetRef="atom_1_ReceiveTask_2" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_22" name="Yes" sourceRef="atom_1_ExclusiveGateway_7" targetRef="atom_1_ParallelGateway_2" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_23" sourceRef="atom_1_UserTask_7" targetRef="atom_1_ParallelGateway_2" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_24" sourceRef="atom_1_ParallelGateway_2" targetRef="atom_1_UserTask_8" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_26" name="No" sourceRef="atom_1_ExclusiveGateway_7" targetRef="atom_1_ExclusiveGateway_8" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_27" sourceRef="atom_1_ReceiveTask_3" targetRef="atom_1_ManualTask_2" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_28" sourceRef="atom_1_ManualTask_2" targetRef="atom_1_ExclusiveGateway_6" />
+    <bpmn:sequenceFlow id="atom_1_SequenceFlow_29" name="No" sourceRef="atom_1_ExclusiveGateway_1" targetRef="atom_1_UserTask_2" />
+    <bpmn:task id="Bridge_1_6c98" name="Here is a transition sentence connecting the two processes:&#10;&#10;Upon receiving confirmation that the order is complete and ready for sale, the sales department initiates a custom request to print a specific 3D model required for the customer&#39;s packaging." />
+    <bpmn:sequenceFlow id="Flow_P2B_1" sourceRef="atom_0_sid-8B760422-D6BF-4BDB-AAE6-3236668A3FC6" targetRef="Bridge_1_6c98" />
+    <bpmn:sequenceFlow id="Flow_B2C_1" sourceRef="Bridge_1_6c98" targetRef="atom_1_ExclusiveGateway_2" />
+    <bpmn:task id="atom_2_Task_1" name="Discard prototype">
+      <bpmn:incoming>atom_2_SequenceFlow_10</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_27</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_2" name="Identify idea for new product or improvement">
+      <bpmn:outgoing>atom_2_SequenceFlow_6</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_3" name="Collect feedback from testing phase">
+      <bpmn:incoming>atom_2_SequenceFlow_23</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_22</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_4" name="Test market potential">
+      <bpmn:incoming>atom_2_SequenceFlow_17</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_26</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_5" name="Refine prototype">
+      <bpmn:incoming>atom_2_SequenceFlow_15</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_4</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_6" name="Test functionality">
+      <bpmn:incoming>atom_2_SequenceFlow_11</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_25</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_7" name="Approve prototype for further development">
+      <bpmn:incoming>atom_2_SequenceFlow_12</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_5</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_8" name="Select promising design">
+      <bpmn:incoming>atom_2_SequenceFlow_24</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_18</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_9" name="Conduct initial research">
+      <bpmn:incoming>atom_2_SequenceFlow_7</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_8</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_10" name="Draft design concepts">
+      <bpmn:incoming>atom_2_SequenceFlow_21</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_24</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_11" name="Test safety">
+      <bpmn:incoming>atom_2_SequenceFlow_14</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_3</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_12" name="Conduct feasibility studies">
+      <bpmn:incoming>atom_2_SequenceFlow_2</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_13</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="atom_2_Task_13" name="Build prototype">
+      <bpmn:incoming>atom_2_SequenceFlow_18</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_19</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:exclusiveGateway id="atom_2_ExclusiveGateway_1">
+      <bpmn:incoming>atom_2_SequenceFlow_22</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_15</bpmn:outgoing>
+      <bpmn:outgoing>atom_2_SequenceFlow_16</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_2_ExclusiveGateway_2">
+      <bpmn:incoming>atom_2_SequenceFlow_5</bpmn:incoming>
+      <bpmn:incoming>atom_2_SequenceFlow_27</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_20</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_2_ExclusiveGateway_3">
+      <bpmn:incoming>atom_2_SequenceFlow_16</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_10</bpmn:outgoing>
+      <bpmn:outgoing>atom_2_SequenceFlow_12</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="atom_2_ExclusiveGateway_4">
+      <bpmn:incoming>atom_2_SequenceFlow_4</bpmn:incoming>
+      <bpmn:incoming>atom_2_SequenceFlow_19</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_9</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:parallelGateway id="atom_2_ParallelGateway_1">
+      <bpmn:incoming>atom_2_SequenceFlow_6</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_2</bpmn:outgoing>
+      <bpmn:outgoing>atom_2_SequenceFlow_7</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="atom_2_ParallelGateway_2">
+      <bpmn:incoming>atom_2_SequenceFlow_3</bpmn:incoming>
+      <bpmn:incoming>atom_2_SequenceFlow_25</bpmn:incoming>
+      <bpmn:incoming>atom_2_SequenceFlow_26</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_23</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="atom_2_ParallelGateway_3">
+      <bpmn:incoming>atom_2_SequenceFlow_9</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_11</bpmn:outgoing>
+      <bpmn:outgoing>atom_2_SequenceFlow_14</bpmn:outgoing>
+      <bpmn:outgoing>atom_2_SequenceFlow_17</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:parallelGateway id="atom_2_ParallelGateway_4">
+      <bpmn:incoming>atom_2_SequenceFlow_8</bpmn:incoming>
+      <bpmn:incoming>atom_2_SequenceFlow_13</bpmn:incoming>
+      <bpmn:outgoing>atom_2_SequenceFlow_21</bpmn:outgoing>
+    </bpmn:parallelGateway>
+    <bpmn:endEvent id="atom_2_EndEvent_1" name="end">
+      <bpmn:incoming>atom_2_SequenceFlow_20</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_2" sourceRef="atom_2_ParallelGateway_1" targetRef="atom_2_Task_12" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_3" sourceRef="atom_2_Task_11" targetRef="atom_2_ParallelGateway_2" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_4" sourceRef="atom_2_Task_5" targetRef="atom_2_ExclusiveGateway_4" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_5" sourceRef="atom_2_Task_7" targetRef="atom_2_ExclusiveGateway_2" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_6" sourceRef="atom_2_Task_2" targetRef="atom_2_ParallelGateway_1" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_7" sourceRef="atom_2_ParallelGateway_1" targetRef="atom_2_Task_9" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_8" sourceRef="atom_2_Task_9" targetRef="atom_2_ParallelGateway_4" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_9" sourceRef="atom_2_ExclusiveGateway_4" targetRef="atom_2_ParallelGateway_3" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_10" sourceRef="atom_2_ExclusiveGateway_3" targetRef="atom_2_Task_1" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_11" sourceRef="atom_2_ParallelGateway_3" targetRef="atom_2_Task_6" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_12" sourceRef="atom_2_ExclusiveGateway_3" targetRef="atom_2_Task_7" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_13" sourceRef="atom_2_Task_12" targetRef="atom_2_ParallelGateway_4" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_14" sourceRef="atom_2_ParallelGateway_3" targetRef="atom_2_Task_11" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_15" sourceRef="atom_2_ExclusiveGateway_1" targetRef="atom_2_Task_5" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_16" sourceRef="atom_2_ExclusiveGateway_1" targetRef="atom_2_ExclusiveGateway_3" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_17" sourceRef="atom_2_ParallelGateway_3" targetRef="atom_2_Task_4" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_18" sourceRef="atom_2_Task_8" targetRef="atom_2_Task_13" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_19" sourceRef="atom_2_Task_13" targetRef="atom_2_ExclusiveGateway_4" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_20" sourceRef="atom_2_ExclusiveGateway_2" targetRef="atom_2_EndEvent_1" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_21" sourceRef="atom_2_ParallelGateway_4" targetRef="atom_2_Task_10" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_22" sourceRef="atom_2_Task_3" targetRef="atom_2_ExclusiveGateway_1" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_23" sourceRef="atom_2_ParallelGateway_2" targetRef="atom_2_Task_3" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_24" sourceRef="atom_2_Task_10" targetRef="atom_2_Task_8" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_25" sourceRef="atom_2_Task_6" targetRef="atom_2_ParallelGateway_2" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_26" sourceRef="atom_2_Task_4" targetRef="atom_2_ParallelGateway_2" />
+    <bpmn:sequenceFlow id="atom_2_SequenceFlow_27" sourceRef="atom_2_Task_1" targetRef="atom_2_ExclusiveGateway_2" />
+    <bpmn:task id="Bridge_2_21d4" name="The 3D model printed in Process A serves as the prototype, which triggers the R&#38;D team&#39;s testing and refinement cycles in Process B to assess its viability for further development." />
+    <bpmn:sequenceFlow id="Flow_P2B_2" sourceRef="atom_1_UserTask_8" targetRef="Bridge_2_21d4" />
+    <bpmn:sequenceFlow id="Flow_B2C_2" sourceRef="Bridge_2_21d4" targetRef="atom_2_Task_2" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Process_Merged">
+      <bpmndi:BPMNShape id="atom_0_sid-FE96D28B-72D2-4E29-9ECA-AC6243966E00_gui" bpmnElement="atom_0_sid-FE96D28B-72D2-4E29-9ECA-AC6243966E00">
+        <omgdc:Bounds x="183" y="307" width="30" height="30" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="155" y="339" width="86" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-DAC9E37C-C386-4072-A774-4D75FA666250_gui" bpmnElement="atom_0_sid-DAC9E37C-C386-4072-A774-4D75FA666250">
+        <omgdc:Bounds x="313" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="322.8857116699219" y="308" width="80.22857666015625" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-633CB30F-4202-49E4-8AA1-163C29826956_gui" bpmnElement="atom_0_sid-633CB30F-4202-49E4-8AA1-163C29826956">
+        <omgdc:Bounds x="483" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="489.02857208251953" y="284" width="87.94285583496094" height="72" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-AE82CBCE-22BA-4718-9DC7-5F3C92965010_gui" bpmnElement="atom_0_sid-AE82CBCE-22BA-4718-9DC7-5F3C92965010" isMarkerVisible="true">
+        <omgdc:Bounds x="628" y="302" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-FA639CE6-E66E-465F-8CBF-EEE2F697D221_gui" bpmnElement="atom_0_sid-FA639CE6-E66E-465F-8CBF-EEE2F697D221">
+        <omgdc:Bounds x="753" y="227" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="766.7428588867188" y="253" width="72.5142822265625" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-115934F8-6F49-4C96-BD7D-342B2B651695_gui" bpmnElement="atom_0_sid-115934F8-6F49-4C96-BD7D-342B2B651695" isMarkerVisible="true">
+        <omgdc:Bounds x="913" y="302" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-0D2CEC09-0B4F-4715-A47B-11CA36A8EF34_gui" bpmnElement="atom_0_sid-0D2CEC09-0B4F-4715-A47B-11CA36A8EF34">
+        <omgdc:Bounds x="998" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1018.6857147216797" y="308" width="58.628570556640625" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-07AEDEF0-7F4C-4434-8315-2FCFB43DFEF2_gui" bpmnElement="atom_0_sid-07AEDEF0-7F4C-4434-8315-2FCFB43DFEF2">
+        <omgdc:Bounds x="1143" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1155.2000007629395" y="314" width="75.5999984741211" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-F875C6AF-25DD-4B75-BE1B-B7D0E760E8C2_gui" bpmnElement="atom_0_sid-F875C6AF-25DD-4B75-BE1B-B7D0E760E8C2">
+        <omgdc:Bounds x="1288" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1293.2571411132812" y="308" width="89.4857177734375" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-18FA731E-131C-424D-AD0C-35237A1DD368_gui" bpmnElement="atom_0_sid-18FA731E-131C-424D-AD0C-35237A1DD368">
+        <omgdc:Bounds x="1433" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1442.8857116699219" y="302" width="80.22857666015625" height="36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_0_sid-8B760422-D6BF-4BDB-AAE6-3236668A3FC6_gui" bpmnElement="atom_0_sid-8B760422-D6BF-4BDB-AAE6-3236668A3FC6">
+        <omgdc:Bounds x="1578" y="282" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="1595.2142868041992" y="302" width="65.57142639160156" height="36" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_1_di" bpmnElement="atom_1_UserTask_1">
+        <omgdc:Bounds x="2285" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2295" y="331" width="79" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_2_di" bpmnElement="atom_1_UserTask_2">
+        <omgdc:Bounds x="2380" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2397" y="456" width="66" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_3_di" bpmnElement="atom_1_UserTask_3">
+        <omgdc:Bounds x="2660" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2679" y="331" width="62" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_4_di" bpmnElement="atom_1_UserTask_4">
+        <omgdc:Bounds x="2890" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2895" y="337" width="89" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_5_di" bpmnElement="atom_1_UserTask_5">
+        <omgdc:Bounds x="2890" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2910" y="462" width="61" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_6_di" bpmnElement="atom_1_UserTask_6">
+        <omgdc:Bounds x="3395" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3413" y="331" width="65" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_7_di" bpmnElement="atom_1_UserTask_7">
+        <omgdc:Bounds x="3700" y="410" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3707" y="436" width="86" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_UserTask_8_di" bpmnElement="atom_1_UserTask_8">
+        <omgdc:Bounds x="4005" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="4014" y="337" width="83" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ReceiveTask_1_di" bpmnElement="atom_1_ReceiveTask_1">
+        <omgdc:Bounds x="2430" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2443" y="337" width="75" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ReceiveTask_2_di" bpmnElement="atom_1_ReceiveTask_2">
+        <omgdc:Bounds x="3700" y="305" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3711" y="337" width="79" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ReceiveTask_3_di" bpmnElement="atom_1_ReceiveTask_3">
+        <omgdc:Bounds x="3050" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3063" y="456" width="73" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ManualTask_1_di" bpmnElement="atom_1_ManualTask_1">
+        <omgdc:Bounds x="3107" y="220" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3122" y="246" width="69" height="24" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ManualTask_2_di" bpmnElement="atom_1_ManualTask_2">
+        <omgdc:Bounds x="3195" y="430" width="100" height="80" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3207" y="462" width="76" height="12" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_1_di" bpmnElement="atom_1_ExclusiveGateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="2575" y="325" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2564" y="298" width="65" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_2_di" bpmnElement="atom_1_ExclusiveGateway_2" isMarkerVisible="true">
+        <omgdc:Bounds x="2200" y="325" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_3_di" bpmnElement="atom_1_ExclusiveGateway_3" isMarkerVisible="true">
+        <omgdc:Bounds x="2805" y="325" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2804" y="305" width="45" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_4_di" bpmnElement="atom_1_ExclusiveGateway_4" isMarkerVisible="true">
+        <omgdc:Bounds x="3035" y="325" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3024" y="370" width="64" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_5_di" bpmnElement="atom_1_ExclusiveGateway_5" isMarkerVisible="true">
+        <omgdc:Bounds x="3225" y="325" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_6_di" bpmnElement="atom_1_ExclusiveGateway_6" isMarkerVisible="true">
+        <omgdc:Bounds x="3310" y="325" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_7_di" bpmnElement="atom_1_ExclusiveGateway_7" isMarkerVisible="true">
+        <omgdc:Bounds x="3844" y="325" width="40" height="40" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3845" y="369" width="42" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ExclusiveGateway_8_di" bpmnElement="atom_1_ExclusiveGateway_8" isMarkerVisible="true">
+        <omgdc:Bounds x="3615" y="325" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ParallelGateway_1_di" bpmnElement="atom_1_ParallelGateway_1">
+        <omgdc:Bounds x="3548" y="325" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_1_ParallelGateway_2_di" bpmnElement="atom_1_ParallelGateway_2">
+        <omgdc:Bounds x="3920" y="325" width="40" height="40" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Bridge_1_6c98_di" bpmnElement="Bridge_1_6c98">
+        <omgdc:Bounds x="1889" y="294" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_1_di" bpmnElement="atom_2_Task_1">
+        <omgdc:Bounds x="6815" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_2_di" bpmnElement="atom_2_Task_2">
+        <omgdc:Bounds x="4565" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_3_di" bpmnElement="atom_2_Task_3">
+        <omgdc:Bounds x="6215" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_4_di" bpmnElement="atom_2_Task_4">
+        <omgdc:Bounds x="5915" y="380" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_5_di" bpmnElement="atom_2_Task_5">
+        <omgdc:Bounds x="6500" y="210" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_6_di" bpmnElement="atom_2_Task_6">
+        <omgdc:Bounds x="5915" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_7_di" bpmnElement="atom_2_Task_7">
+        <omgdc:Bounds x="6815" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_8_di" bpmnElement="atom_2_Task_8">
+        <omgdc:Bounds x="5315" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_9_di" bpmnElement="atom_2_Task_9">
+        <omgdc:Bounds x="4865" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_10_di" bpmnElement="atom_2_Task_10">
+        <omgdc:Bounds x="5165" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_11_di" bpmnElement="atom_2_Task_11">
+        <omgdc:Bounds x="5915" y="240" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_12_di" bpmnElement="atom_2_Task_12">
+        <omgdc:Bounds x="4865" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_Task_13_di" bpmnElement="atom_2_Task_13">
+        <omgdc:Bounds x="5465" y="100" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ExclusiveGateway_1_di" bpmnElement="atom_2_ExclusiveGateway_1" isMarkerVisible="true">
+        <omgdc:Bounds x="6390" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ExclusiveGateway_2_di" bpmnElement="atom_2_ExclusiveGateway_2" isMarkerVisible="true">
+        <omgdc:Bounds x="6990" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ExclusiveGateway_3_di" bpmnElement="atom_2_ExclusiveGateway_3" isMarkerVisible="true">
+        <omgdc:Bounds x="6690" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ExclusiveGateway_4_di" bpmnElement="atom_2_ExclusiveGateway_4" isMarkerVisible="true">
+        <omgdc:Bounds x="5640" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ParallelGateway_1_di" bpmnElement="atom_2_ParallelGateway_1">
+        <omgdc:Bounds x="4740" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ParallelGateway_2_di" bpmnElement="atom_2_ParallelGateway_2">
+        <omgdc:Bounds x="6090" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ParallelGateway_3_di" bpmnElement="atom_2_ParallelGateway_3">
+        <omgdc:Bounds x="5790" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_ParallelGateway_4_di" bpmnElement="atom_2_ParallelGateway_4">
+        <omgdc:Bounds x="5040" y="115" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="atom_2_EndEvent_1_di" bpmnElement="atom_2_EndEvent_1">
+        <omgdc:Bounds x="7147" y="122" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="7156" y="158" width="19" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Bridge_2_21d4_di" bpmnElement="Bridge_2_21d4">
+        <omgdc:Bounds x="4285" y="203" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="atom_0_sid-98E88C16-CEF8-4670-A2D2-77FD469AD72A_gui" bpmnElement="atom_0_sid-98E88C16-CEF8-4670-A2D2-77FD469AD72A">
+        <omgdi:waypoint x="213.20643915147076" y="322.35670642893126" />
+        <omgdi:waypoint x="313.20643915147076" y="322.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-34653BDE-B1E9-4B67-B977-9EBC710E9460_gui" bpmnElement="atom_0_sid-34653BDE-B1E9-4B67-B977-9EBC710E9460">
+        <omgdi:waypoint x="413.20643915147076" y="322.35670642893126" />
+        <omgdi:waypoint x="483.20643915147076" y="322.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-02E9A299-A301-49AA-91E5-DFDAA43A08FE_gui" bpmnElement="atom_0_sid-02E9A299-A301-49AA-91E5-DFDAA43A08FE">
+        <omgdi:waypoint x="583.2064391514707" y="322.57315664538146" />
+        <omgdi:waypoint x="628.2064391514707" y="322.7679618401867" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-B178EE2A-A0BA-4E05-86F9-C81267E42A8B_gui" bpmnElement="atom_0_sid-B178EE2A-A0BA-4E05-86F9-C81267E42A8B">
+        <omgdi:waypoint x="853.2064391514707" y="267.35670642893126" />
+        <omgdi:waypoint x="933.7064391514707" y="267.35670642893126" />
+        <omgdi:waypoint x="933.7064391514707" y="302.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-EFCDF1EF-52AD-433C-9922-6B81875B1E3C_gui" bpmnElement="atom_0_sid-EFCDF1EF-52AD-433C-9922-6B81875B1E3C">
+        <omgdi:waypoint x="648.7064391514707" y="302.35670642893126" />
+        <omgdi:waypoint x="648.7064391514707" y="267.35670642893126" />
+        <omgdi:waypoint x="753.2064391514707" y="267.35670642893126" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="568" y="249" width="64" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-6553D798-ABB1-43E5-92FA-44163C110CD8_gui" bpmnElement="atom_0_sid-6553D798-ABB1-43E5-92FA-44163C110CD8">
+        <omgdi:waypoint x="668.2064391514707" y="322.85670642893126" />
+        <omgdi:waypoint x="913.2064391514707" y="322.85670642893126" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="966" y="329" width="65" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-D3C55120-D9A8-4695-B481-95DD1F852D5F_gui" bpmnElement="atom_0_sid-D3C55120-D9A8-4695-B481-95DD1F852D5F">
+        <omgdi:waypoint x="953.2064391514707" y="322.77155359050334" />
+        <omgdi:waypoint x="998.2064391514707" y="322.57504704028497" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-0E6EF0C4-FC07-45CD-A8E6-F64E98256B08_gui" bpmnElement="atom_0_sid-0E6EF0C4-FC07-45CD-A8E6-F64E98256B08">
+        <omgdi:waypoint x="1098.2064391514707" y="322.35670642893126" />
+        <omgdi:waypoint x="1143.2064391514707" y="322.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-25452CDA-3A62-4CD6-845E-5EB01077CF07_gui" bpmnElement="atom_0_sid-25452CDA-3A62-4CD6-845E-5EB01077CF07">
+        <omgdi:waypoint x="1243.2064391514707" y="322.35670642893126" />
+        <omgdi:waypoint x="1288.2064391514707" y="322.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-00CDBBD4-296C-4526-BC45-30915685732D_gui" bpmnElement="atom_0_sid-00CDBBD4-296C-4526-BC45-30915685732D">
+        <omgdi:waypoint x="1388.2064391514707" y="322.35670642893126" />
+        <omgdi:waypoint x="1433.2064391514707" y="322.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_0_sid-ACF7A1BE-2521-4DEA-966D-EB95FAC3E85F_gui" bpmnElement="atom_0_sid-ACF7A1BE-2521-4DEA-966D-EB95FAC3E85F">
+        <omgdi:waypoint x="1533.2064391514707" y="322.35670642893126" />
+        <omgdi:waypoint x="1578.2064391514707" y="322.35670642893126" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_1_di" bpmnElement="atom_1_SequenceFlow_1">
+        <omgdi:waypoint x="2385.4873696485683" y="345" />
+        <omgdi:waypoint x="2430.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_2_di" bpmnElement="atom_1_SequenceFlow_2">
+        <omgdi:waypoint x="2530.4873696485683" y="345" />
+        <omgdi:waypoint x="2575.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_3_di" bpmnElement="atom_1_SequenceFlow_3">
+        <omgdi:waypoint x="2380.4873696485683" y="470" />
+        <omgdi:waypoint x="2220.4873696485683" y="470" />
+        <omgdi:waypoint x="2220.4873696485683" y="365" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_4_di" bpmnElement="atom_1_SequenceFlow_4">
+        <omgdi:waypoint x="2240.4873696485683" y="345" />
+        <omgdi:waypoint x="2285.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_6_di" bpmnElement="atom_1_SequenceFlow_6">
+        <omgdi:waypoint x="2615.4873696485683" y="345" />
+        <omgdi:waypoint x="2660.4873696485683" y="345" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2624" y="325" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_7_di" bpmnElement="atom_1_SequenceFlow_7">
+        <omgdi:waypoint x="2760.4873696485683" y="345" />
+        <omgdi:waypoint x="2805.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_8_di" bpmnElement="atom_1_SequenceFlow_8">
+        <omgdi:waypoint x="2845.4873696485683" y="345" />
+        <omgdi:waypoint x="2890.4873696485683" y="345" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2854" y="325" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_9_di" bpmnElement="atom_1_SequenceFlow_9">
+        <omgdi:waypoint x="2990.4873696485683" y="345" />
+        <omgdi:waypoint x="3035.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_10_di" bpmnElement="atom_1_SequenceFlow_10">
+        <omgdi:waypoint x="3056.4873696485683" y="325" />
+        <omgdi:waypoint x="3056.4873696485683" y="260" />
+        <omgdi:waypoint x="3107.4873696485683" y="260" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3034" y="298" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_11_di" bpmnElement="atom_1_SequenceFlow_11">
+        <omgdi:waypoint x="3075.4873696485683" y="346" />
+        <omgdi:waypoint x="3225.4873696485683" y="346" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3084" y="326" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_12_di" bpmnElement="atom_1_SequenceFlow_12">
+        <omgdi:waypoint x="3207.4873696485683" y="260" />
+        <omgdi:waypoint x="3246.4873696485683" y="260" />
+        <omgdi:waypoint x="3246.4873696485683" y="325" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_13_di" bpmnElement="atom_1_SequenceFlow_13">
+        <omgdi:waypoint x="2826.4873696485683" y="365" />
+        <omgdi:waypoint x="2826.4873696485683" y="470" />
+        <omgdi:waypoint x="2890.4873696485683" y="470" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2805" y="373" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_14_di" bpmnElement="atom_1_SequenceFlow_14">
+        <omgdi:waypoint x="3265.4873696485683" y="346" />
+        <omgdi:waypoint x="3310.4873696485683" y="346" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_15_di" bpmnElement="atom_1_SequenceFlow_15">
+        <omgdi:waypoint x="2990.4873696485683" y="470" />
+        <omgdi:waypoint x="3050.4873696485683" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_16_di" bpmnElement="atom_1_SequenceFlow_16">
+        <omgdi:waypoint x="3350.4873696485683" y="345" />
+        <omgdi:waypoint x="3395.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_17_di" bpmnElement="atom_1_SequenceFlow_17">
+        <omgdi:waypoint x="3495.4873696485683" y="345" />
+        <omgdi:waypoint x="3548.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_18_di" bpmnElement="atom_1_SequenceFlow_18">
+        <omgdi:waypoint x="3568.4873696485683" y="365" />
+        <omgdi:waypoint x="3568.4873696485683" y="450" />
+        <omgdi:waypoint x="3700.4873696485683" y="450" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_19_di" bpmnElement="atom_1_SequenceFlow_19">
+        <omgdi:waypoint x="3800.4873696485683" y="345" />
+        <omgdi:waypoint x="3844.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_20_di" bpmnElement="atom_1_SequenceFlow_20">
+        <omgdi:waypoint x="3588.4873696485683" y="346" />
+        <omgdi:waypoint x="3615.4873696485683" y="346" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_21_di" bpmnElement="atom_1_SequenceFlow_21">
+        <omgdi:waypoint x="3655.4873696485683" y="345" />
+        <omgdi:waypoint x="3700.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_22_di" bpmnElement="atom_1_SequenceFlow_22">
+        <omgdi:waypoint x="3884.4873696485683" y="346" />
+        <omgdi:waypoint x="3920.4873696485683" y="346" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3893" y="326" width="18" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_23_di" bpmnElement="atom_1_SequenceFlow_23">
+        <omgdi:waypoint x="3800.4873696485683" y="450" />
+        <omgdi:waypoint x="3940.4873696485683" y="450" />
+        <omgdi:waypoint x="3940.4873696485683" y="365" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_24_di" bpmnElement="atom_1_SequenceFlow_24">
+        <omgdi:waypoint x="3960.4873696485683" y="345" />
+        <omgdi:waypoint x="4005.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_26_di" bpmnElement="atom_1_SequenceFlow_26">
+        <omgdi:waypoint x="3864.4873696485683" y="325" />
+        <omgdi:waypoint x="3864.4873696485683" y="262" />
+        <omgdi:waypoint x="3636.4873696485683" y="262" />
+        <omgdi:waypoint x="3636.4873696485683" y="325" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="3843" y="302" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_27_di" bpmnElement="atom_1_SequenceFlow_27">
+        <omgdi:waypoint x="3150.4873696485683" y="470" />
+        <omgdi:waypoint x="3195.4873696485683" y="470" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_28_di" bpmnElement="atom_1_SequenceFlow_28">
+        <omgdi:waypoint x="3295.4873696485683" y="470" />
+        <omgdi:waypoint x="3330.4873696485683" y="470" />
+        <omgdi:waypoint x="3330.4873696485683" y="365" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_1_SequenceFlow_29_di" bpmnElement="atom_1_SequenceFlow_29">
+        <omgdi:waypoint x="2596.4873696485683" y="365" />
+        <omgdi:waypoint x="2596.4873696485683" y="470" />
+        <omgdi:waypoint x="2480.4873696485683" y="470" />
+        <bpmndi:BPMNLabel>
+          <omgdc:Bounds x="2575" y="381" width="15" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_P2B_1_di" bpmnElement="Flow_P2B_1">
+        <omgdi:waypoint x="1678.2064391514707" y="322.35670642893126" />
+        <omgdi:waypoint x="1889.3469044000194" y="333.67835321446563" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_B2C_1_di" bpmnElement="Flow_B2C_1">
+        <omgdi:waypoint x="1989.3469044000194" y="333.67835321446563" />
+        <omgdi:waypoint x="2200.4873696485683" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_2_di" bpmnElement="atom_2_SequenceFlow_2">
+        <omgdi:waypoint x="4790.487369648568" y="140" />
+        <omgdi:waypoint x="4865.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_3_di" bpmnElement="atom_2_SequenceFlow_3">
+        <omgdi:waypoint x="6015.487369648568" y="280" />
+        <omgdi:waypoint x="6115.487369648568" y="280" />
+        <omgdi:waypoint x="6115.487369648568" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_4_di" bpmnElement="atom_2_SequenceFlow_4">
+        <omgdi:waypoint x="6600.487369648568" y="250" />
+        <omgdi:waypoint x="6640.487369648568" y="250" />
+        <omgdi:waypoint x="6640.487369648568" y="500" />
+        <omgdi:waypoint x="5665.487369648568" y="500" />
+        <omgdi:waypoint x="5665.487369648568" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_5_di" bpmnElement="atom_2_SequenceFlow_5">
+        <omgdi:waypoint x="6915.487369648568" y="280" />
+        <omgdi:waypoint x="7015.487369648568" y="280" />
+        <omgdi:waypoint x="7015.487369648568" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_6_di" bpmnElement="atom_2_SequenceFlow_6">
+        <omgdi:waypoint x="4665.487369648568" y="140" />
+        <omgdi:waypoint x="4740.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_7_di" bpmnElement="atom_2_SequenceFlow_7">
+        <omgdi:waypoint x="4765.487369648568" y="165" />
+        <omgdi:waypoint x="4765.487369648568" y="280" />
+        <omgdi:waypoint x="4865.487369648568" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_8_di" bpmnElement="atom_2_SequenceFlow_8">
+        <omgdi:waypoint x="4965.487369648568" y="280" />
+        <omgdi:waypoint x="5065.487369648568" y="280" />
+        <omgdi:waypoint x="5065.487369648568" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_9_di" bpmnElement="atom_2_SequenceFlow_9">
+        <omgdi:waypoint x="5690.487369648568" y="140" />
+        <omgdi:waypoint x="5790.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_10_di" bpmnElement="atom_2_SequenceFlow_10">
+        <omgdi:waypoint x="6740.487369648568" y="140" />
+        <omgdi:waypoint x="6815.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_11_di" bpmnElement="atom_2_SequenceFlow_11">
+        <omgdi:waypoint x="5840.487369648568" y="140" />
+        <omgdi:waypoint x="5915.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_12_di" bpmnElement="atom_2_SequenceFlow_12">
+        <omgdi:waypoint x="6715.487369648568" y="165" />
+        <omgdi:waypoint x="6715.487369648568" y="280" />
+        <omgdi:waypoint x="6815.487369648568" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_13_di" bpmnElement="atom_2_SequenceFlow_13">
+        <omgdi:waypoint x="4965.487369648568" y="140" />
+        <omgdi:waypoint x="5040.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_14_di" bpmnElement="atom_2_SequenceFlow_14">
+        <omgdi:waypoint x="5815.487369648568" y="165" />
+        <omgdi:waypoint x="5815.487369648568" y="280" />
+        <omgdi:waypoint x="5915.487369648568" y="280" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_15_di" bpmnElement="atom_2_SequenceFlow_15">
+        <omgdi:waypoint x="6415.487369648568" y="165" />
+        <omgdi:waypoint x="6415.487369648568" y="250" />
+        <omgdi:waypoint x="6500.487369648568" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_16_di" bpmnElement="atom_2_SequenceFlow_16">
+        <omgdi:waypoint x="6440.487369648568" y="140" />
+        <omgdi:waypoint x="6690.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_17_di" bpmnElement="atom_2_SequenceFlow_17">
+        <omgdi:waypoint x="5815.487369648568" y="165" />
+        <omgdi:waypoint x="5815.487369648568" y="420" />
+        <omgdi:waypoint x="5915.487369648568" y="420" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_18_di" bpmnElement="atom_2_SequenceFlow_18">
+        <omgdi:waypoint x="5415.487369648568" y="140" />
+        <omgdi:waypoint x="5465.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_19_di" bpmnElement="atom_2_SequenceFlow_19">
+        <omgdi:waypoint x="5565.487369648568" y="140" />
+        <omgdi:waypoint x="5640.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_20_di" bpmnElement="atom_2_SequenceFlow_20">
+        <omgdi:waypoint x="7040.487369648568" y="140" />
+        <omgdi:waypoint x="7147.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_21_di" bpmnElement="atom_2_SequenceFlow_21">
+        <omgdi:waypoint x="5090.487369648568" y="140" />
+        <omgdi:waypoint x="5165.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_22_di" bpmnElement="atom_2_SequenceFlow_22">
+        <omgdi:waypoint x="6315.487369648568" y="140" />
+        <omgdi:waypoint x="6390.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_23_di" bpmnElement="atom_2_SequenceFlow_23">
+        <omgdi:waypoint x="6140.487369648568" y="140" />
+        <omgdi:waypoint x="6215.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_24_di" bpmnElement="atom_2_SequenceFlow_24">
+        <omgdi:waypoint x="5265.487369648568" y="140" />
+        <omgdi:waypoint x="5315.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_25_di" bpmnElement="atom_2_SequenceFlow_25">
+        <omgdi:waypoint x="6015.487369648568" y="140" />
+        <omgdi:waypoint x="6090.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_26_di" bpmnElement="atom_2_SequenceFlow_26">
+        <omgdi:waypoint x="6015.487369648568" y="420" />
+        <omgdi:waypoint x="6115.487369648568" y="420" />
+        <omgdi:waypoint x="6115.487369648568" y="165" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="atom_2_SequenceFlow_27_di" bpmnElement="atom_2_SequenceFlow_27">
+        <omgdi:waypoint x="6915.487369648568" y="140" />
+        <omgdi:waypoint x="6990.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_P2B_2_di" bpmnElement="Flow_P2B_2">
+        <omgdi:waypoint x="4105.487369648568" y="345" />
+        <omgdi:waypoint x="4285.487369648568" y="242.5" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_B2C_2_di" bpmnElement="Flow_B2C_2">
+        <omgdi:waypoint x="4385.487369648568" y="242.5" />
+        <omgdi:waypoint x="4565.487369648568" y="140" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>

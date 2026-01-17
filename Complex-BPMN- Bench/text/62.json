@@ -1,0 +1,17 @@
+{
+  "id": "a2da0dcf-1078-4dea-802b-bac2c91a6394",
+  "domain": "Finance",
+  "complexity_level": 3,
+  "coarse_request": "Please design a budgeting and procurement process that includes the roles of 'department', 'finance department', 'administration department', 'data entry office', 'validation office', 'payment office', and 'risk assessment office'. The key activities are 'plan creation and review', 'invoice processing and payment', and 'risk assessment', and there should be decision points regarding 'budget approval' and 'risk level'.",
+  "fine_grained_text": "Step 1: This process starts with a department outlining its objectives for the upcoming period, such as hiring, equipment needs, or marketing efforts.\nThe team drafts a plan that includes cost estimates and justifications for the budget requested.\nThe plan is first reviewed in a strategic alignment meeting to ensure it aligns with broader organizational goals.\nFollowing this, the finance department performs a detailed review to assess the budget's feasibility.\nThe plan may undergo several rounds of review and possible adjustments based on feedback from these reviews.\nEach adjustment is documented and approved by necessary stakeholders.\nOnce the final version of the budget is approved, the budget is officially allocated to the department.\nThe process ends when the budget is distributed, and the department begins implementing its plan.\n[Transition]: Once the budget is allocated, the department begins procuring goods and services, which results in invoices like those received by the Mail Centre office of SSP.\nStep 2: Once the Mail Centre office of SSP receives an invoice from the client, it categorizes the invoice by staff member.\nThen, the invoice is forwarded to the Administration Department; this Department processes the Invoice (a complex process) and then puts all the invoices into a collection box.\nAt 10 am every workday, the Data Entry office takes the invoices and enters all data in the SAP system, another complex process.\nEvery hour the Mail Centre office reviews the system and forwards all new invoices for validation; the Validation office executes the big process of validating invoices.\nAt the beginning of every week, the Payment office executes the payment of every validate invoice, this is another big process.\nAfter the payment, all invoices are archived by the Registry office.\n[Transition]: After the invoices in Process A are paid, the resulting payment data triggers the need for assessment in Process B to evaluate the risk of extending new credit.\nStep 3: When a new credit request is received, the risk is assessed. If the risk is above\na threshold, an advanced risk assessment needs to be carried out, otherwise a\nsimple risk assessment will suffice. Once the assessment has been completed, the\ncustomer is notified with the result of the assessment, and in the meantime the\ndisbursement is organized.",
+  "atomic_components": [
+    "atom_8fecf508",
+    "atom_179d51c9",
+    "atom_fe258490"
+  ],
+  "bridge_logics": [
+    "Once the budget is allocated, the department begins procuring goods and services, which results in invoices like those received by the Mail Centre office of SSP.",
+    "After the invoices in Process A are paid, the resulting payment data triggers the need for assessment in Process B to evaluate the risk of extending new credit."
+  ],
+  "created_at": "2026-01-05 16:41:49"
+}
