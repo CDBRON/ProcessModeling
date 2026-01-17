@@ -1,4 +1,4 @@
-# MAPM: Business Process Model Generation
+# MAPM: A Multi-Agent Framework for the Automatic Generation of Business Process Model
 
 This project is based on a multi-agent framework and automatically generates standard BPMN 2.0 process models (XML) and visual diagrams (SVG) from natural language descriptions.
 The synthetic dataset used in this project is located in the **`Complex-BPMN-Bench`** folder in the project's root directory.
