@@ -5,7 +5,7 @@ from langchain_core.tools import tool
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_core.prompts import PromptTemplate
 from langchain_classic import hub
-from core.llm import client,llm # client 用于类内部调用
+from core.llm import client,llm 
 
 class ProcessAssembler:
     class ProcessAssembler:
@@ -26,7 +26,7 @@ class ProcessAssembler:
                          "content": "You are a logical reasoning engine for BPMN process assembly. Respond concisely and accurately based on the user's query."},
                         {"role": "user", "content": prompt}]
             response = client.chat.completions.create(
-                model='llm',  # MiniMax/MiniMax-M1-80k     Qwen/Qwen3-235B-A22B
+                model='llm',  
                 messages=messages,
                 temperature=0,
                 stream=False
