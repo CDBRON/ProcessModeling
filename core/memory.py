@@ -3,16 +3,14 @@ import datetime
 from typing import List, Dict, Any
 
 class SharedMemory:
-    """
-    一个用于在多智能体流水线中记录和共享交互历史的模块。
-    """
+    
     def __init__(self):
         self.log: List[Dict[str, Any]] = []
         self.costs: List[Dict[str, Any]] = []
         print("--- [Memory] Shared Memory module initialized (with cost tracking). ---")
 
     def add_entry(self, agent_name: str, input_data: Any, output_data: Any, cost_info: Dict = None):
-        """向日志中添加一个新的条目，并可选地记录成本。"""
+       
         timestamp = datetime.datetime.now().isoformat()
         self.log.append({
             "timestamp": timestamp,
@@ -33,13 +31,13 @@ class SharedMemory:
                   f"Output Tokens: {cost_info.get('output_tokens', 0)}")
 
     def get_formatted_log(self) -> str:
-        """将日志格式化为字符串，以便注入到智能体的提示中。"""
+        
         if not self.log:
             return "No interactions have been logged yet."
 
         formatted_entries = []
         for i, entry in enumerate(self.log):
-            # 为了提示的简洁性，对长输出进行截断
+            
             try:
                 output_str = json.dumps(entry.get('output', ''), indent=2, ensure_ascii=False)
             except TypeError:
@@ -48,7 +46,7 @@ class SharedMemory:
             if len(output_str) > 600:
                 output_str = output_str[:600] + "\n... (output truncated)"
 
-            # 同样处理输入
+           
             try:
                 input_str = json.dumps(entry.get('input', ''), indent=2, ensure_ascii=False)
             except TypeError:
@@ -74,13 +72,12 @@ class SharedMemory:
         print("\n\n" + "="*40)
         print("====== FULL SHARED MEMORY LOG ======")
         print("="*40 + "\n")
-        # 使用 ensure_ascii=False 以正确显示中文字符
+        
         print(json.dumps(self.log, indent=2, ensure_ascii=False))
 
     def calculate_and_print_total_cost(self):
-        """计算并打印详细的总成本报告。"""
-        # ModelScope 通义千问系列价格 (截至2024年中期，单位：元/千tokens)
-        # 注意：请根据您使用的具体模型和最新价格进行调整
+    
+        
         pricing = {
             'ZhipuAI/GLM-4.5': {'input': 0.0008, 'output': 0.002},
             'ZhipuAI/GLM-4.6': {'input': 0.0008, 'output': 0.002},
@@ -98,11 +95,10 @@ class SharedMemory:
 
         for cost_entry in self.costs:
             agent_name = cost_entry['agent_name']
-            # 从 LangChain 回调中获取的模型名可能与字典中的 key 略有不同，我们需要做一些标准化
+           
             model_name_raw = cost_entry.get('model_name', 'unknown')
 
-            # 【修正后的逻辑】
-            # 直接在 pricing 字典里查找模型名称
+            
             model_pricing = pricing.get(model_name_raw)
 
             input_tokens = cost_entry.get('input_tokens', 0)
@@ -133,7 +129,7 @@ class SharedMemory:
         print("=" * 40 + "\n")
         print(f"Total Input Tokens:  {total_input_tokens}")
         print(f"Total Output Tokens: {total_output_tokens}")
-        print(f"Total Estimated Cost: ¥{total_cost:.6f}\n")  # 增加小数位数以显示更精确的成本
+        print(f"Total Estimated Cost: ¥{total_cost:.6f}\n")  
 
         print("--- Cost Breakdown by Agent ---")
         for agent, data in cost_by_agent.items():
