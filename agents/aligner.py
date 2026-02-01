@@ -3,16 +3,15 @@ import re
 from typing import Union, List, Dict, Any, cast
 from dataclasses import dataclass, field
 
-# --- LangChain / LangGraph 导入 ---
 from langchain.agents import AgentExecutor, create_react_agent
 from langchain_classic import hub
 from langchain_core.tools import tool
 from langchain_core.prompts import PromptTemplate
 from langgraph.graph import StateGraph, END
 
-# --- 项目内部导入 (假设你已经按之前的建议建立了 core 和 tools 目录) ---
+
 from core.llm import llm, client
-from tools.classifier import activity_classifier_pipeline # 从 tools 中导入加载好的模型
+from tools.classifier import activity_classifier_pipeline 
 
 @dataclass
 class GraphState:
@@ -30,24 +29,21 @@ def critique_node(state: GraphState) -> dict:
     for activity in activities:
         description = activity.get("description", "")
 
-        # --- 修改开始：提取动作文本，去除角色前缀 ---
-        # 默认使用完整描述
+        
         action_text_for_eval = description
-        # 如果包含冒号，则分割并取后半部分（即动作部分）
         if ":" in description:
-            # split(":", 1) 确保只分割第一个冒号，防止动作内容里也有冒号被误切
             parts = description.split(":", 1)
             if len(parts) > 1:
                 action_text_for_eval = parts[1].strip()
-        # --- 修改结束 ---
+        
 
         label = "Standard"
         if activity_classifier_pipeline:
-            # 这里传入处理过的 action_text_for_eval 而不是原始 description
+            
             result = activity_classifier_pipeline(action_text_for_eval)
             label = result[0]['label']
         if label != "Standard":
-            # 打印日志时同时显示原始描述和用于评估的文本，方便调试
+            
             print(f"  - Found non-standard activity: '{description}' (Evaluated: '{action_text_for_eval}') -> {label}")
             activities_to_refine.append({"activity": activity, "granularity": label})
     return {"activities_to_refine": activities_to_refine}
@@ -59,10 +55,10 @@ def refine_node(state: GraphState) -> dict:
     activities_to_refine = state.activities_to_refine
     all_activities = current_json.get("activities", [])
 
-    # 提取描述用于集合运算
+    
     problematic_descriptions = {item['activity']['description'] for item in activities_to_refine}
 
-    # 分离标准活动和问题活动
+    
     standard_activities = [act for act in all_activities if act['description'] not in problematic_descriptions]
     problematic_activities = [item['activity'] for item in activities_to_refine]
 
@@ -76,11 +72,10 @@ def refine_node(state: GraphState) -> dict:
             "iteration_count": state.iteration_count + 1
         }
 
-    # 生成详细的错误报告，包含具体的粒度问题 (Too Fine / Too Coarse)
-    # 格式: "- [Too Fine] 'client: Access website'"
+    
     error_report_lines = []
     for item in activities_to_refine:
-        issue_type = item['granularity']  # "Too Fine" or "Too Coarse"
+        issue_type = item['granularity'] 
         desc = item['activity']['description']
         error_report_lines.append(f"- [{issue_type}] Activity: '{desc}'")
     error_report_str = "\n".join(error_report_lines)
@@ -117,7 +112,7 @@ def refine_node(state: GraphState) -> dict:
         "Identify idea for new product or improvement",
         """.strip()
 
-    # --- 核心修改：Prompt 逻辑重构 ---
+    
     refinement_prompt = f"""
         You are an expert BPMN Process Refiner. Your goal is to standardize the descriptions of specific activities to satisfy a strict granularity classifier.
 
@@ -190,28 +185,28 @@ def refine_node(state: GraphState) -> dict:
          "content": "Please fix the granularity issues based on the Error Report. Output the Transformation Plan first, then the JSON."}
     ]
 
-    # 建议稍微调高一点 temperature，让模型有“创造性”去合并/拆分，而不是死板地复制
+    
     response = client.chat.completions.create(
         model='Qwen/Qwen3-235B-A22B-Instruct-2507',
-        # Qwen/Qwen3-235B-A22B-Instruct-2507  Qwen/Qwen3-Coder-480B-A35B-Instruct
+
         messages=messages,
-        temperature=0,  # 稍微增加一点随机性，避免死循环复制
+        temperature=0,  
         stream=False
     )
     llm_output = response.choices[0].message.content
     print(f"LLM refinement output:\n{llm_output}")
 
-    # --- 增强的 JSON 提取逻辑 ---
+  
     try:
-        # 优先寻找 Markdown 代码块
+        
         code_block_pattern = r"```json\s*(\{.*?\})\s*```"
         matches = re.findall(code_block_pattern, llm_output, re.DOTALL)
 
         if matches:
-            # 取最后一个代码块（通常是最终结果）
+            
             json_string = matches[-1]
         else:
-            # 如果没有代码块，尝试寻找最外层的大括号
+           
             match = re.search(r'\{.*}', llm_output, re.DOTALL)
             if match:
                 json_string = match.group(0)
@@ -220,8 +215,7 @@ def refine_node(state: GraphState) -> dict:
 
         refined_json = json.loads(json_string)
 
-        # 简单的校验：如果活动数量完全没变，且描述完全没变，可能需要警告
-        # (这里可以加额外的逻辑，但先让它跑起来)
+        
 
         return {
             "processed_json": refined_json,
@@ -229,7 +223,7 @@ def refine_node(state: GraphState) -> dict:
         }
     except (json.JSONDecodeError, ValueError) as e:
         print(f"!!! [ERROR] Failed to parse JSON from LLM response. Error: {e} !!!")
-        # 打印出错的片段方便调试
+       
         print(f"Debug - Failed JSON string snippet: {llm_output[-500:]}")
         return {
             "processed_json": state.processed_json,
