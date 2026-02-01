@@ -15,11 +15,11 @@ def tavily_wrapper(query: str) -> str:
     """
     print(f"\n--- [Tool Wrapper] Calling TavilySearch with query: {query} ---\n")
 
-    # 直接使用 TavilyClient，因为它能让我们轻松访问 'answer' 字段
+   
     client = TavilyClient(api_key=tavily_api_key)
 
     try:
-        # 使用 include_answer="advanced" 来获取综合性答案
+       
         response = client.search(
             query=query,
             search_depth="advanced",
@@ -30,11 +30,11 @@ def tavily_wrapper(query: str) -> str:
         return f"Tavily search failed: {e}"
     print(response)
 
-    # 提取 'answer'
+
     ai_generated_answer = response.get('answer', 'No direct answer was generated.')
     print(f"AI-Generated Answer: {ai_generated_answer}")
 
-    # 提取 'results' 中的摘要
+ 
     results = response.get('results', [])
     source_snippets = []
     for i, result in enumerate(results):
@@ -42,7 +42,7 @@ def tavily_wrapper(query: str) -> str:
             snippet = result.get('content', 'No snippet available.')
             source_snippets.append(f"Source {i + 1} Snippet: {snippet}")
 
-    # 将 'answer' 和摘要组合成一个结构化的、信息丰富的字符串
+   
     final_output = (
             f"**AI-Generated Summary Answer:**\n{ai_generated_answer}\n\n"
             f"--- \n"
