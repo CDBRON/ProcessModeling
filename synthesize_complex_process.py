@@ -12,9 +12,9 @@ import config
 
 config = config.Config()
 
-# =================配置区域=================
+
 MODEL_NAME = ""
-INPUT_POOL_DIR = "./auto_pool"  # 原子池目录
+INPUT_POOL_DIR = "./auto_pool"  
 OUTPUT_DATASET_DIR = "./synthetic_complex_dataset"
 
 
@@ -29,7 +29,7 @@ class ProcessSynthesizer:
         self.pool = self._load_pool()
 
     def _load_pool(self) -> Dict[str, List[Dict]]:
-        """加载并按 Domain 分类原子流程"""
+      
         pool = {}
         if not os.path.exists(INPUT_POOL_DIR):
             print(f"错误：输入目录 {INPUT_POOL_DIR} 不存在！")
@@ -53,7 +53,7 @@ class ProcessSynthesizer:
         return pool
 
     def _select_compatible_atoms(self, domain: str, num_nodes: int) -> List[Dict]:
-        """从指定领域选择 num_nodes 个原子流程"""
+      
         candidates = self.pool.get(domain, [])
         if len(candidates) < num_nodes:
             print(f"警告：领域 {domain} 的样本不足（只有 {len(candidates)} 个，需要 {num_nodes} 个）")
@@ -61,7 +61,7 @@ class ProcessSynthesizer:
         return random.sample(candidates, num_nodes)
 
     def _generate_bridge_logic(self, prev_atom: Dict, next_atom: Dict) -> str:
-        """利用 LLM 生成两个流程之间的过渡描述"""
+      
         prompt = f"""
         You are a Business Process Expert.
         Task: Write a transition sentence to connect Process A and Process B logically.
@@ -83,7 +83,7 @@ class ProcessSynthesizer:
             return "Then, the process continues to the next stage."
 
     def _generate_coarse_instruction(self, fine_grained_text: str) -> str:
-        """利用 LLM 逆向生成粗粒度指令"""
+       
         prompt = f"""
         You are an expert Business Process Architect. Your task is to read a long, detailed business process description and summarize it into a single, concise, one-sentence "design brief".
 
@@ -136,7 +136,7 @@ class ProcessSynthesizer:
                     {"role": "system", "content":prompt},
                     {"role": "user", "content": f'Now, apply this exact logic to the following detailed process description.**Input Text:**{fine_grained_text}'}
                 ],
-                temperature=0.1  # 降低温度以保证格式稳定
+                temperature=0.1 
             )
             return response.choices[0].message.content.strip()
         except Exception as e:
@@ -144,8 +144,7 @@ class ProcessSynthesizer:
             return "Error generating instruction."
 
     def synthesize_one_sample(self) -> Optional[Dict]:
-        """合成一条复杂数据"""
-        # 1. 随机选一个领域
+        
         valid_domains = [d for d, items in self.pool.items() if len(items) >= 3]
         if not valid_domains:
             print("没有足够数据的领域（至少需要3个原子流程）！")
@@ -154,23 +153,23 @@ class ProcessSynthesizer:
         domain = random.choice(valid_domains)
         print(f"--- 选中领域: {domain} ---")
 
-        # 2. 确定长度 (3-5个原子)
+      
         chain_length = random.randint(7, 7)
         print(f"--- 计划合成长度: {chain_length} 个原子流程 ---")
 
         atoms = self._select_compatible_atoms(domain, chain_length)
         if not atoms: return None
 
-        # 3. 拼接文本
+       
         full_text_parts = []
         bridge_logics = []
 
         print("--- 正在生成桥接逻辑... ---")
         for i in range(len(atoms)):
-            # 添加原子流程文本
+            
             full_text_parts.append(f"Step {i + 1}: {atoms[i]['original_text']}")
 
-            # 如果不是最后一个，生成连接下一个的桥接逻辑
+            
             if i < len(atoms) - 1:
                 bridge = self._generate_bridge_logic(atoms[i], atoms[i + 1])
                 full_text_parts.append(f"[Transition]: {bridge}")
@@ -180,7 +179,7 @@ class ProcessSynthesizer:
         fine_grained_text = "\n".join(full_text_parts)
         print(f"--- 细粒度文本合成完毕 (长度: {len(fine_grained_text)} 字符) ---")
 
-        # 4. 生成粗粒度指令
+        
         print("--- 正在逆向生成粗粒度指令... ---")
         coarse_request = self._generate_coarse_instruction(fine_grained_text)
         print(f"--- 粗粒度指令: {coarse_request} ---")
@@ -197,7 +196,7 @@ class ProcessSynthesizer:
         }
 
     def generate_single_sample(self):
-        """对外接口：生成并保存单条数据"""
+       
         if not os.path.exists(OUTPUT_DATASET_DIR):
             os.makedirs(OUTPUT_DATASET_DIR)
 
@@ -205,7 +204,7 @@ class ProcessSynthesizer:
         sample = self.synthesize_one_sample()
 
         if sample:
-            # 使用 UUID 作为文件名，防止覆盖
+           
             file_name = f"complex_{sample['id']}.json"
             file_path = os.path.join(OUTPUT_DATASET_DIR, file_name)
 
@@ -223,5 +222,6 @@ class ProcessSynthesizer:
 
 if __name__ == "__main__":
     synthesizer = ProcessSynthesizer()
-    # 只生成一条
+ 
+
     synthesizer.generate_single_sample()
