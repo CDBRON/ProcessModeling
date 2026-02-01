@@ -5,7 +5,7 @@ from core import memory
 from core.llm import llm
 from core.utils import invoke_with_cost_logging
 from agents.researcher import researcher_agent_executor
-from agents.extractor import perform_extraction # 这是一个函数
+from agents.extractor import perform_extraction 
 from agents.enricher import gateway_inference_agent_executor
 from agents.aligner import aligner_agent_executor
 from agents.pruner import pruning_agent_executor
@@ -22,13 +22,12 @@ def research_node(state: TeamProjectState) -> Dict[str, Any]:
     # response = researcher_agent_executor.invoke(research_input)
     # memory.add_entry("ResearcherAgent", research_input, response)
 
-    # 使用我们的包装函数，它会自动处理调用和日志记录
     response = invoke_with_cost_logging(
         researcher_agent_executor,
         research_input,
         "ResearcherAgent",
         memory,
-        llm_object=llm  # <--- 新增的参数
+        llm_object=llm
     )
 
     return {"research_report": response['output'], "last_agent_called": "Researcher"}
@@ -57,7 +56,7 @@ def enrichment_node(state: TeamProjectState) -> Dict[str, Any]:
     user_request = state.get("user_request", "N/A")
     research_report = state.get("research_report", "N/A")
     skeleton_json_str = json.dumps(state.get('skeleton_json', {}), indent=2)
-    memory_log = memory.get_formatted_log()  # 假设 memory 对象在此处可用
+    memory_log = memory.get_formatted_log()  
     gateway_input = {
         "input": "Based on all the provided context, enrich the Skeleton JSON with gateways.",
         "user_request": user_request,
@@ -65,19 +64,13 @@ def enrichment_node(state: TeamProjectState) -> Dict[str, Any]:
         "skeleton_json": skeleton_json_str,
         "memory_log": memory_log
     }
-    # AgentExecutor 现在会正确地填充所有占位符
-    # response = gateway_inference_agent_executor.invoke(gateway_input)
-    #
-    # # 记录到 memory 时，我们可以记录完整的输入
-    # memory.add_entry("GatewayInferenceAgent", gateway_input, response)
-
-    # 使用我们的包装函数，它会自动处理调用和日志记录
+    
     response = invoke_with_cost_logging(
         gateway_inference_agent_executor,
         gateway_input,
         "GatewayInferenceAgent",
         memory,
-        llm_object=llm  # <--- 新增的参数
+        llm_object=llm  
     )
 
     try:
@@ -91,15 +84,13 @@ def alignment_node(state: TeamProjectState) -> Dict[str, Any]:
     print("\n\n" + "=" * 20 + " [NODE: ALIGNER] " + "=" * 20)
     aligner_input_str = json.dumps(state['enriched_json'])
     aligner_input = {"input": aligner_input_str, "memory_log": memory.get_formatted_log()}
-    # response = aligner_agent_executor.invoke(aligner_input)
-    # memory.add_entry("GranularityAlignerAgent", aligner_input, response)
-    # 使用我们的包装函数，它会自动处理调用和日志记录
+    
     response = invoke_with_cost_logging(
         aligner_agent_executor,
         aligner_input,
         "GranularityAlignerAgent",
         memory,
-        llm_object=llm # <--- 新增的参数
+        llm_object=llm 
     )
 
 
@@ -129,7 +120,7 @@ def pruning_node(state: TeamProjectState) -> Dict[str, Any]:
         pruning_input,
         "PruningAbstractionAgent",
         memory,
-        llm_object=llm # <--- 新增的参数
+        llm_object=llm 
     )
 
     try:
@@ -150,7 +141,7 @@ def assembly_node(state: TeamProjectState) -> Dict[str, Any]:
         assembly_input,
         "ProcessAssemblyAgent",
         memory,
-        llm_object=llm  # <--- 新增的参数
+        llm_object=llm 
     )
 
     try:
@@ -180,7 +171,7 @@ def audit_node(state: TeamProjectState) -> Dict[str, Any]:
         auditor_input,
         "FinalAuditorAgent",
         memory,
-        llm_object=llm  # <--- 新增的参数
+        llm_object=llm  
     )
 
     try:
