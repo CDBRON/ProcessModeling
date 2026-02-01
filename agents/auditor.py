@@ -28,10 +28,10 @@ def finalize_audit(audited_ir_json_str: str) -> str:
         cleaned_json_str = cleaned_json_str.replace('"type":极', '"type":')
         cleaned_json_str = cleaned_json_str.replace('"id": "act_极', '"id": "act_')
 
-        # 3. 解析清洗后的字符串
+       
         json_obj = json.loads(cleaned_json_str)
 
-        # 4. 返回格式化后的、100%干净的JSON
+        
         return json.dumps(json_obj, indent=2, ensure_ascii=False)
     except json.JSONDecodeError as e:
         error_msg = f"Error: Failed to parse the final audited IR JSON. Details: {e}. Raw output was: '{audited_ir_json_str}'"
@@ -173,7 +173,6 @@ Let's think step by step！
 escaped_instruction_auditor = instruction_auditor.replace("{", "{{").replace("}", "}}")
 full_auditor_template = escaped_instruction_auditor + "\n\n" + prompt_hub.template
 
-# auditor_template = instruction_auditor + "\n\n" + prompt_hub.template
 auditor_prompt = PromptTemplate.from_template(full_auditor_template)
 
 final_auditor_agent = create_react_agent(
