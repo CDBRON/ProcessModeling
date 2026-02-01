@@ -4,11 +4,11 @@ import uuid
 import copy
 import xml.etree.ElementTree as ET
 
-# =================配置区域=================
+
 POOL_DIR = "./auto_pool"
 COMPLEX_DATA_DIR = "./synthetic_complex_dataset"
 OUTPUT_XML_DIR = "./synthetic_complex_dataset/bpmn"
-# ========================================
+
 
 NAMESPACES = {
     'bpmn': 'http://www.omg.org/spec/BPMN/20100524/MODEL',
@@ -46,25 +46,17 @@ class BpmnMerger:
         return elem.tag.split('}')[-1] if '}' in elem.tag else elem.tag
 
     def _smart_process_xml(self, root, new_prefix):
-        """
-        【智能修复逻辑】
-        1. 扫描现有 ID (例如: "abc_Task_1")
-        2. 猜测原始 ID (例如: "Task_1")
-        3. 建立映射: "Task_1" -> "new_prefix_Task_1"
-        4. 同时映射: "abc_Task_1" -> "new_prefix_Task_1"
-        """
+        
         id_map = {}
 
-        # --- 阶段 1: 智能构建映射表 ---
+        
         for elem in root.iter():
             if 'id' in elem.attrib:
                 current_id = elem.attrib['id']
 
-                # 生成最终的新 ID
-                # 为了避免 ID 无限变长，我们只保留原始部分 + 新前缀
-                # 假设 current_id 是 "oldprefix_OriginalID"
+                
                 if '_' in current_id:
-                    # 尝试去掉第一个下划线前的部分作为 OriginalID
+                    
                     parts = current_id.split('_', 1)
                     original_id = parts[1]
                 else:
@@ -72,29 +64,29 @@ class BpmnMerger:
 
                 final_id = f"{new_prefix}{original_id}"
 
-                # 关键：同时映射“当前ID”和“猜测的原始ID”
+               
                 id_map[current_id] = final_id
                 id_map[original_id] = final_id
 
         print(f"    - 构建了 {len(id_map)} 条 ID 映射规则")
 
-        # --- 阶段 2: 暴力替换 ---
+      
         replace_count = 0
         for elem in root.iter():
-            # 1. 替换属性
+          
             for key, val in list(elem.attrib.items()):
-                # 如果值在映射表中，直接替换
+                
                 if val in id_map:
                     elem.attrib[key] = id_map[val]
                     replace_count += 1
-                # 特殊处理：有些引用可能有命名空间前缀 (如 ns1:Task_1)
+                
                 elif ":" in val:
                     suffix = val.split(":")[-1]
                     if suffix in id_map:
                         elem.attrib[key] = id_map[suffix]
                         replace_count += 1
 
-            # 2. 替换文本 (incoming/outgoing)
+           
             if elem.text:
                 text = elem.text.strip()
                 if text in id_map:
@@ -208,19 +200,19 @@ class BpmnMerger:
 
             print(f"  处理原子 [{i}]: {atom_id}")
 
-            # 1. 智能修复 ID
+           
             self._smart_process_xml(atom_root, f"atom_{i}_")
 
-            # 2. 归一化
+        
             min_x, min_y, max_x, max_y = self._get_bounds(atom_root)
             self._shift_diagram(atom_root, -min_x, -min_y)
 
-            # 3. 平移
+         
             height = max_y - min_y
             y_offset = 300 - (height / 2)
             self._shift_diagram(atom_root, global_cursor_x, y_offset)
 
-            # 4. 查找 Process
+      
             atom_process = None
             for elem in atom_root.iter():
                 if self._tag(elem) == 'process':
@@ -228,10 +220,10 @@ class BpmnMerger:
                     break
             if atom_process is None: continue
 
-            # 5. 查找锚点
+        
             start_evt, end_evt, first_node, last_node = self._find_anchors(atom_process)
 
-            # 6. 迁移元素
+         
             is_first = (i == 0)
             is_last = (i == len(atom_ids) - 1)
 
@@ -245,7 +237,7 @@ class BpmnMerger:
                     if not is_last and t == end_evt: continue
                 process_node.append(copy.deepcopy(child))
 
-            # 7. 迁移 DI
+           
             atom_plane = None
             for elem in atom_root.iter():
                 if self._tag(elem) == 'BPMNPlane':
@@ -259,7 +251,7 @@ class BpmnMerger:
                     if not is_last and eid == end_evt: continue
                     plane_node.append(copy.deepcopy(shape))
 
-            # 8. 桥接
+           
             if not is_first and prev_last_node_info and first_node:
                 prev_id, prev_x, prev_y = prev_last_node_info
 
@@ -271,7 +263,7 @@ class BpmnMerger:
 
                     bridge_text = "Transition"
                     if i - 1 < len(bridge_logics):
-                        bridge_text = bridge_logics[i - 1]  # 直接使用完整文本
+                        bridge_text = bridge_logics[i - 1]  
                         # full_text = bridge_logics[i - 1]
                         # bridge_text = (full_text[:30] + '...') if len(full_text) > 30 else full_text
 
@@ -288,7 +280,7 @@ class BpmnMerger:
                     shape.append(bounds)
                     plane_node.append(shape)
 
-                    # 连线 1
+                   
                     f1_id = f"Flow_P2B_{i}"
                     f1 = ET.Element("bpmn:sequenceFlow", {"id": f1_id, "sourceRef": prev_id, "targetRef": bridge_id})
                     process_node.append(f1)
@@ -299,7 +291,7 @@ class BpmnMerger:
                     e1.append(w1_2)
                     plane_node.append(e1)
 
-                    # 连线 2
+                   
                     f2_id = f"Flow_B2C_{i}"
                     f2 = ET.Element("bpmn:sequenceFlow", {"id": f2_id, "sourceRef": bridge_id, "targetRef": first_node})
                     process_node.append(f2)
@@ -312,7 +304,7 @@ class BpmnMerger:
 
                     print(f"    -> 连接: {prev_id} -> [{bridge_text}] -> {first_node}")
 
-            # 更新状态
+            
             if last_node:
                 geo = self._get_node_center(atom_root, last_node)
                 if geo:
@@ -334,4 +326,5 @@ if __name__ == "__main__":
     if os.path.exists(COMPLEX_DATA_DIR):
         for f in os.listdir(COMPLEX_DATA_DIR):
             if f.startswith("complex_") and f.endswith(".json"):
+
                 merger.merge(os.path.join(COMPLEX_DATA_DIR, f))
